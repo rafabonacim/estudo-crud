@@ -1,0 +1,31 @@
+<%- include('./partials/navegation'); %>
+<main>
+    <div class="container-fluid px-4">
+        <h1 class="my-4">Adicionar Serviço</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                <section class="add-services">
+                    <form method="POST" action="/admin/listaServicos/adicionar" enctype="multipart/form-data">
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" name="nomeServico" placeholder="Nome do Serviço" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control" name="precoServico" placeholder="Preço do Serviço" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <textarea class="form-control" name="descricaoServico" placeholder="Descrição do Serviço" rows="3"></textarea>
+                        </div>
+                        <div class="form-group mb-2">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="ilustracaoServico" id="customFile">
+                                <label class="custom-file-label" for="customFile">Escolher Arquivo</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+<%- include('./partials/footer'); %>   

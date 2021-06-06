@@ -1,0 +1,48 @@
+<%- include('./partials/navegation'); %>
+<main>
+    <section class="services-list">
+        <div class="container-fluid px-4">
+            <h1 class="my-4">Serviços</h1>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i> Lista de Serviços
+                </div>
+                <div class="card-body">
+                    <% if(services){ %>
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Descrição</th>
+                                <th>Imagem</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (service of services){ %> 
+                            <tr>
+                                <td><%= service.nomeServico %></td>
+                                <td>R$ <%= service.precoServico %></td>
+                                <td><%= service.descricaoServico %></td>
+                                <td class="service-list-image">
+                                    <img class="card-img-top" src="/uploads/<%= service.ilustracaoServico %>" alt="..." />
+                                </td>
+                                <td>
+                                    <a href="/admin/listaServicos/editar/<%= service.id %>" class="btn btn-primary">Editar</a>
+                                    <form action="/admin/listaServicos/deletar/<%= service.id %>/?_method=DELETE " method=POST enctype="multipart/form-data" >
+                                    <button type="submit" class="btn btn-danger">Excluir</button>
+                        
+                                    </form>
+                                </td>
+                            </tr>
+                            <% } %> 
+                        </tbody>
+                    </table>
+                    <% } %> 
+                </div>
+            </div>
+        </div>
+</section>
+</main>
+<%- include('./partials/footer'); %>  
